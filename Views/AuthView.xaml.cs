@@ -9,14 +9,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ADOFINAL
+namespace ADOFINAL.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthView : Window
     {
-        public MainWindow()
+        public AuthView()
         {
             InitializeComponent();
         }
