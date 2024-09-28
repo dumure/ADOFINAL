@@ -1,0 +1,60 @@
+﻿<Window x:Class="ADOFINAL.Views.AccountUserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADOFINAL.Views"
+        mc:Ignorable="d"
+        Title="AccountUserView" Height="500" Width="300">
+    <Grid Background="Wheat">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Button Opacity="1" Margin="10" Command="{Binding PictureCommand}" BorderThickness="5" BorderBrush="Black">
+            <Button.Content>
+                <Image x:Name="image" Source="{Binding Picture}" Margin="10"/>
+            </Button.Content>
+        </Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Email:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBlock Text="{Binding CurrentUser.Email}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Grid.Column="1"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Username:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox x:Name="username" Text="{Binding Username}" Width="135" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Grid.Column="1" Style="{StaticResource TextBoxRevealStyle}" FontSize="9"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <PasswordBox x:Name="password" Width="135" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Grid.Column="1" Style="{StaticResource PasswordBoxRevealStyle}" FontSize="8" PasswordChanged="password_PasswordChanged"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Cash:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 4 0"/>
+            <TextBlock Text="{Binding Cash}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 4 0"/>
+            <Button Content="+ $100" Grid.Row="5" Margin="0 3 80 3"  Grid.Column="2" Style="{StaticResource ButtonAccentRevealStyle}" Command="{Binding CashCommand}"/>
+        </Grid>
+        <Button Grid.Row="5" VerticalAlignment="Center" Content="Save and close" HorizontalAlignment="Center" Margin="3" Style="{StaticResource ButtonAccentRevealStyle}" Height="30" Width="100" Command="{Binding SaveCommand}"/>
+    </Grid>
+</Window>

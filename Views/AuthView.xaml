@@ -3,10 +3,72 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:ADOFINAL.Views"
         mc:Ignorable="d"
-        Title="Authorization" Height="450" Width="800">
-    <Grid>
-
+        Title="Authorization" Height="700" Width="900" ResizeMode="CanMinimize">
+    <Grid fw:PointerTracker.Enabled="True" Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="DarkSlateBlue" Offset="0.0" />
+                    <GradientStop Color="DarkCyan" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightGray" fw:PointerTracker.Enabled="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.4*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="LOGIN" Foreground="CornflowerBlue" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Bahnschrift" FontWeight="Bold"/>
+            <TextBlock Text="Username" Grid.Row="3" Margin="20 0 0 0" VerticalAlignment="Bottom" FontSize="12" FontFamily="Calibri"/>
+            <TextBox x:Name="UsernameBox" Grid.Row="4" Margin="20 3" Style="{StaticResource TextBoxRevealStyle}" FontSize="11" Text="{Binding Username}"/>
+            <TextBlock Text="Password" Grid.Row="6" Margin="20 0 0 0" VerticalAlignment="Bottom" FontSize="12" FontFamily="Calibri"/>
+            <PasswordBox x:Name="PasswordBox" Grid.Row="7" Margin="20 3" Style="{StaticResource PasswordBoxRevealStyle}" FontSize="11" PasswordChanged="PasswordBox_PasswordChanged"/>
+            <Grid Grid.Row="9" fw:PointerTracker.Enabled="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Margin="20 8 10 12">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkSlateBlue" Offset="0.0" />
+                            <GradientStop Color="DarkCyan" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Button Margin="20 8 10 12" Content="SIGN IN" Foreground="LightGray" Background="Transparent" Style="{StaticResource ButtonAccentRevealStyle}" Command="{Binding SignInCommand}" FontWeight="Bold"/>
+                <Rectangle Margin="10 8 20 12" Grid.Column="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkSlateBlue" Offset="0.0" />
+                            <GradientStop Color="DarkCyan" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Button Margin="10 8 20 12" Content="SIGN UP" Foreground="LightGray" Grid.Column="1" Background="Transparent" Style="{StaticResource ButtonAccentRevealStyle}" Command="{Binding SignUpCommand}" FontWeight="Bold"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

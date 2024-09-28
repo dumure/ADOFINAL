@@ -19,5 +19,4 @@ namespace ADOFINAL
             view.Show();
         }
     }
-
 }
